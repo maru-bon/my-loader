@@ -1,142 +1,147 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>Loading...</title>
+  <meta charset="UTF-8">
+  <title>ロード画面</title>
   <style>
-/* ロード画面全体 */
-.loading-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  background: url('https://static.wixstatic.com/media/50328c_d8ed293e6dad4d35aa69660ce452af74~mv2.png') center/cover no-repeat;
-  z-index: 9999;
-  color: white;
-}
+    /* ロード画面全体 */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      background: url('https://static.wixstatic.com/media/50328c_d8ed293e6dad4d35aa69660ce452af74~mv2.png') center/cover no-repeat;
+      z-index: 9999;
+      color: white;
+    }
 
-/* 星を置くコンテナ */
-#stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
+    /* 星を置くコンテナ */
+    #stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
 
-/* 星 */
-.star {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0;
-  animation: twinkle linear infinite;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-}
+    /* 星 */
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle linear infinite;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    }
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0; }
-  50% { opacity: 1; }
-}
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
 
-/* ロゴ＋テキスト */
-.logo-text-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
+    /* ロゴ＋テキスト */
+    .logo-text-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-.loading-logo {
-  width: 200px;
-  margin-right: 15px;
-  animation: heartbeat 1.5s infinite;
-}
+    .loading-logo {
+      width: 200px;
+      margin-bottom: 15px;
+      animation: heartbeat 1.5s infinite;
+    }
 
-/* スマホ用調整 */
-@media (max-width: 768px) {
-  .loading-logo { width: 120px; }
-  .loading-lines { font-size: 1.2rem; margin-top: 10px; }
-}
+    .loading-lines {
+      display: flex;
+      gap: 8px;
+      font-size: 32px;
+      font-weight: bold;
+      color: #ffffff;
+    }
 
-.loading-lines {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  font-size: 32px;
-  font-weight: bold;
-  color: #ffffff;
-}
+    .loading-line {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #001f5b;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+    }
 
-.loading-line {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #001f5b;
-  opacity: 0;
-  animation: fadeIn 0.8s forwards;
-}
+    .sub-text {
+      font-size: 1.2rem;
+      color: white;
+      margin-top: 12px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 2.5s;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.1); }
-  50% { transform: scale(0.95); }
-  75% { transform: scale(1.05); }
-}
-</style>
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      50% { transform: scale(0.95); }
+      75% { transform: scale(1.05); }
+    }
+  </style>
 </head>
 <body>
-<div class="loading-screen">
-  <div id="stars"></div>
-  <div class="logo-text-container">
-    <img src="https://static.wixstatic.com/media/50328c_9c89c14be6c44cc79f692c99e4c95e79~mv2.png" alt="Logo" class="loading-logo" />
-    <div class="loading-lines" id="loading-lines"></div>
+  <div class="loading-screen">
+    <div id="stars"></div>
+    <div class="logo-text-container">
+      <img src="https://static.wixstatic.com/media/50328c_9c89c14be6c44cc79f692c99e4c95e79~mv2.png" alt="Logo" class="loading-logo" />
+      <div class="loading-lines" id="loading-lines"></div>
+      <div class="sub-text">with dry head spa</div>
+    </div>
   </div>
-</div>
-<script>
-// ⭐ 星をランダム配置
-const starsContainer = document.getElementById("stars");
-for (let i = 0; i < 40; i++) {
-  const star = document.createElement("div");
-  star.className = "star";
-  const size = Math.random() * 3 + 1;
-  star.style.width = ${size}px;
-  star.style.height = ${size}px;
-  star.style.top = ${Math.random() * 100}%;
-  star.style.left = ${Math.random() * 100}%;
-  star.style.animationDuration = ${Math.random() * 3 + 2}s;
-  star.style.animationDelay = ${Math.random() * 5}s;
-  starsContainer.appendChild(star);
-}
 
-// ⭐ テキストを1文字ずつフェードイン
-const text = "Loading...";
-const container = document.getElementById("loading-lines");
-text.split("").forEach((char, i) => {
-  const span = document.createElement("span");
-  span.className = "loading-line";
-  span.style.animationDelay = ${i * 0.2}s;
-  span.textContent = char;
-  container.appendChild(span);
-});
+  <script>
+    // ⭐ 星をランダム配置
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 40; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      const size = Math.random() * 3 + 1;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      starsContainer.appendChild(star);
+    }
 
-// ⭐ 数秒後にトップページへ遷移
-setTimeout(() => {
-  window.location.href = "/"; // トップページのURLに変更
-}, 4000); // 4秒後に移動
-</script>
+    // ⭐ テキストを1文字ずつフェードイン
+    const text = "Loading...";
+    const container = document.getElementById("loading-lines");
+    text.split("").forEach((char, i) => {
+      const span = document.createElement("span");
+      span.className = "loading-line";
+      span.style.animationDelay = `${i * 0.2}s`;
+      span.textContent = char;
+      container.appendChild(span);
+    });
+
+    // ⭐ 数秒後にトップページへ遷移
+    setTimeout(() => {
+      window.location.href = "https://www.maru-rirekisyo.com/"; // WixのトップページURLに変更
+    }, 5000); // 5秒後に移動
+  </script>
 </body>
 </html>
