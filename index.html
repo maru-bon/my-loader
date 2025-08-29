@@ -1,4 +1,9 @@
-<style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loading...</title>
+  <style>
 /* ロード画面全体 */
 .loading-screen {
   position: fixed;
@@ -92,7 +97,8 @@
   75% { transform: scale(1.05); }
 }
 </style>
-
+</head>
+<body>
 <div class="loading-screen">
   <div id="stars"></div>
   <div class="logo-text-container">
@@ -100,7 +106,6 @@
     <div class="loading-lines" id="loading-lines"></div>
   </div>
 </div>
-
 <script>
 // ⭐ 星をランダム配置
 const starsContainer = document.getElementById("stars");
@@ -133,3 +138,5 @@ setTimeout(() => {
   window.location.href = "/"; // トップページのURLに変更
 }, 4000); // 4秒後に移動
 </script>
+</body>
+</html>
